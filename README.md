@@ -1,8 +1,6 @@
-# A field for Filament that allows you to add content to another field
+# Filament Placeholder Input
 
-## 
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+A field for Filament that allows you to add content to another field
 
 ## Installation
 
@@ -10,39 +8,6 @@ You can install the package via composer:
 
 ```bash
 composer require codedor/filament-placeholder-input
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="filament-placeholder-input-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="filament-placeholder-input-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="filament-placeholder-input-views"
-```
-
-## Usage
-
-```php
-$filamentPlaceholderInput = new Codedor\FilamentPlaceholderInput();
-echo $filamentPlaceholderInput->echoPhrase('Hello, Codedor!');
 ```
 
 ## Documentation

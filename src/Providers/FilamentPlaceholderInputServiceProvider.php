@@ -11,8 +11,7 @@ class FilamentPlaceholderInputServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('filament-placeholder-input')
-            ->setBasePath(__DIR__ . '/../')
-            ->hasConfigFile()
-            ->hasMigration('create_package_table');
+            ->hasViews()
+            ->setBasePath(__DIR__ . '/../');
     }
 }
