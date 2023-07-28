@@ -5,29 +5,29 @@ namespace Codedor\FilamentPlaceholderInput;
 class PlaceholderVariable
 {
     public function __construct(
-        public null | string $key = null,
-        public null | string $label = null,
+        public ?string $key = null,
+        public ?string $label = null,
         public mixed $value = null,
     ) {
         //
     }
 
     public static function make(
-        null | string $key = null,
-        null | string $label = null,
+        string $key = null,
+        string $label = null,
         mixed $value = null,
     ): static {
         return new static($key, $label, $value);
     }
 
-    public function key(null | string $key): static
+    public function key(?string $key): static
     {
         $this->key = $key;
 
         return $this;
     }
 
-    public function label(null | string $label): static
+    public function label(?string $label): static
     {
         $this->label = $label;
 
@@ -41,7 +41,7 @@ class PlaceholderVariable
         return $this;
     }
 
-    public function getKey(): null | string
+    public function getKey(): ?string
     {
         return $this->key;
     }

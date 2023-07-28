@@ -45,7 +45,7 @@ class PlaceholderInput extends Field
         return $this;
     }
 
-    public function getVariables(): null|array
+    public function getVariables(): ?array
     {
         return $this->evaluate($this->variables) ?? method_exists($this->getRecord(), 'getPlaceholderVariables')
             ? $this->getRecord()->getPlaceholderVariables()
