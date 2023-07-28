@@ -1,12 +1,12 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "codedor/filament-placeholder-input",
+    "description": "A field for Filament that allows you to add content to another field",
     "keywords": [
-        ":vendor_name",
+        "codedor",
         "laravel",
-        ":package_slug"
+        "filament-placeholder-input"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/codedor/filament-placeholder-input",
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -26,19 +26,19 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Codedor\\FilamentPlaceholderInput\\": "src",
+            "Codedor\\FilamentPlaceholderInput\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Codedor\\FilamentPlaceholderInput\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\Providers\\SkeletonServiceProvider"
+                "Codedor\\FilamentPlaceholderInput\\Providers\\FilamentPlaceholderInputServiceProvider"
             ]
         }
     },
