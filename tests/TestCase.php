@@ -2,9 +2,9 @@
 
 namespace Codedor\FilamentPlaceholderInput\Tests;
 
+use Codedor\FilamentPlaceholderInput\Providers\FilamentPlaceholderInputServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Codedor\FilamentPlaceholderInput\Providers\FilamentPlaceholderInputServiceProvider;
 
 class TestCase extends Orchestra
 {
