@@ -10,15 +10,15 @@ class PlaceholderInput extends Field
 {
     protected string $view = 'filament-placeholder-input::forms.components.placeholder-input';
 
-    public null | array | string | Closure $linksWith = null;
+    public null|array|string|Closure $linksWith = null;
 
-    public array | Closure $variables = [];
+    public array|Closure $variables = [];
 
-    public array | Closure $labels = [];
+    public array|Closure $labels = [];
 
-    public bool | Closure $canCopy = false;
+    public bool|Closure $canCopy = false;
 
-    public function linksWith(null | array | string | Closure $linksWith): static
+    public function linksWith(null|array|string|Closure $linksWith): static
     {
         if (is_string($linksWith)) {
             $linksWith = Arr::wrap($linksWith);
@@ -38,7 +38,7 @@ class PlaceholderInput extends Field
         return $this->evaluate($this->linksWith);
     }
 
-    public function variables(array | Closure $variables): static
+    public function variables(array|Closure $variables): static
     {
         $this->variables = $variables;
 
@@ -50,7 +50,7 @@ class PlaceholderInput extends Field
         return $this->evaluate($this->variables);
     }
 
-    public function labels(array | Closure $labels): static
+    public function labels(array|Closure $labels): static
     {
         $this->labels = $labels;
 
@@ -62,7 +62,7 @@ class PlaceholderInput extends Field
         return $this->evaluate($this->labels);
     }
 
-    public function canCopy(bool | Closure $canCopy = true): static
+    public function canCopy(bool|Closure $canCopy = true): static
     {
         $this->canCopy = $canCopy;
 
