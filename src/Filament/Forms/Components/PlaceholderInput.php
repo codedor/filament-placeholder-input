@@ -5,6 +5,8 @@ namespace Codedor\FilamentPlaceholderInput\Filament\Forms\Components;
 use Closure;
 use Filament\Forms\Components\Field;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Request;
 
 class PlaceholderInput extends Field
 {
@@ -12,9 +14,7 @@ class PlaceholderInput extends Field
 
     public null|array|string|Closure $linksWith = null;
 
-    public array|Closure $variables = [];
-
-    public array|Closure $labels = [];
+    public null|array|Closure $variables = null;
 
     public bool|Closure $canCopy = false;
 
@@ -24,18 +24,18 @@ class PlaceholderInput extends Field
             $linksWith = Arr::wrap($linksWith);
         }
 
-        if (Arr::isList($linksWith)) {
-            $linksWith = array_combine($linksWith, $linksWith);
-        }
-
         $this->linksWith = $linksWith;
 
         return $this;
     }
 
-    public function getLinksWith(): array
+    public function getLinksWith(): Collection
     {
-        return $this->evaluate($this->linksWith);
+        $form = $this->getLivewire()->getForm('form');
+
+        return collect($this->evaluate($this->linksWith))->mapWithKeys(fn ($key) => [
+            $key => $form->getComponent("data.{$key}")->getLabel(),
+        ]);
     }
 
     public function variables(array|Closure $variables): static
@@ -45,32 +45,22 @@ class PlaceholderInput extends Field
         return $this;
     }
 
-    public function getVariables(): array
+    public function getVariables(): null|array
     {
-        return $this->evaluate($this->variables);
+        return $this->evaluate($this->variables) ?? method_exists($this->getRecord(), 'getPlaceholderVariables')
+            ? $this->getRecord()->getPlaceholderVariables()
+            : [];
     }
 
-    public function labels(array|Closure $labels): static
-    {
-        $this->labels = $labels;
-
-        return $this;
-    }
-
-    public function getLabels(): array
-    {
-        return $this->evaluate($this->labels);
-    }
-
-    public function canCopy(bool|Closure $canCopy = true): static
+    public function copyable(bool|Closure $canCopy = true): static
     {
         $this->canCopy = $canCopy;
 
         return $this;
     }
 
-    public function getCanCopy(): bool
+    public function canCopy(): bool
     {
-        return $this->evaluate($this->canCopy);
+        return Request::secure() && $this->evaluate($this->canCopy);
     }
 }

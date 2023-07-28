@@ -1,7 +1,7 @@
 @php
     $linksWith = $getLinksWith();
-    $variableLabels = $getLabels();
-    $canCopy = $getCanCopy() && Request::secure();
+    $variables = $getVariables();
+    $canCopy = $canCopy();
 @endphp
 
 <x-dynamic-component
@@ -9,7 +9,7 @@
     :field="$field"
 >
     <div x-data="{
-        linked: @js(array_keys($linksWith)[0] ?? null),
+        linked: @js($linksWith->keys()->first()),
         addToBody (e, key) {
             // Append the variable (key) to the body
             let original = $wire.get('data.' + this.linked)
@@ -31,7 +31,7 @@
                 .send()
         }
     }">
-        @if ($linksWith && count($linksWith) > 1)
+        @if ($linksWith && $linksWith->count() > 1)
             <select x-model="linked">
                 @foreach ($linksWith as $target => $label)
                     <option value="{{ $target }}">
@@ -42,22 +42,22 @@
         @endif
 
         <table>
-            @foreach ($getVariables() as $key)
+            @foreach ($variables as $variable)
                 <tr class="flex gap-4 items-center">
-                    @if ($linksWith)
-                        <td x-on:click="addToBody($event, @js($key))">
+                    @if ($linksWith && $linksWith->isNotEmpty())
+                        <td x-on:click="addToBody($event, @js($variable->getKey()))">
                             <x-heroicon-o-plus class="w-5 h-5" />
                         </td>
                     @endif
 
                     @if ($canCopy)
-                        <td x-on:click="copyToClipboard(@js($key))">
+                        <td x-on:click="copyToClipboard(@js($variable->getKey()))">
                             <x-heroicon-o-clipboard class="w-5 h-5" />
                         </td>
                     @endif
 
                     <td>
-                        {{ $variableLabels[$key] ?? $key }}
+                        {{ $variable->getLabel() }}
                     </td>
                 </tr>
             @endforeach
