@@ -23,7 +23,7 @@
         copyToClipboard (key) {
             // Copy the variable (key) to the clipboard
             // Only works on secure origins (https://)
-            navigator.clipboard.writeText(key)
+            navigator.clipboard.writeText('@{{ ' + key + ' }}')
 
             new FilamentNotification()
                 .title('Copied \'' + key + '\' to clipboard')
