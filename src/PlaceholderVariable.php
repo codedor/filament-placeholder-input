@@ -16,8 +16,8 @@ class PlaceholderVariable
         string $key = null,
         string $label = null,
         mixed $value = null,
-    ): static {
-        return new static($key, $label, $value);
+    ): self {
+        return new self($key, $label, $value);
     }
 
     public function key(?string $key): static
