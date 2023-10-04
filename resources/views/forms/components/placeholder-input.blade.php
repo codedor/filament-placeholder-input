@@ -32,32 +32,48 @@
         }
     }">
         @if ($linksWith && $linksWith->count() > 1)
-            <select x-model="linked">
-                @foreach ($linksWith as $target => $label)
-                    <option value="{{ $target }}">
-                        {{ $label }}
-                    </option>
-                @endforeach
-            </select>
+            <div class="w-full flex gap-1 mb-4">
+                <x-filament::input.wrapper>
+                    <x-filament::input.select x-model="linked">
+                        @foreach ($linksWith as $target => $label)
+                            <option value="{{ $target }}">
+                                {{ $label }}
+                            </option>
+                        @endforeach
+                    </x-filament::input.select>
+                </x-filament::input.wrapper>
+            </div>
         @endif
 
         <table>
             @foreach ($variables as $variable)
-                <tr class="flex gap-4 items-center">
+                <tr class="flex items-center" >
                     @if ($linksWith && $linksWith->isNotEmpty())
-                        <td x-on:click="addToBody($event, @js($variable->getKey()))">
-                            <x-heroicon-o-plus class="w-5 h-5" />
+                        <td class="mb-1" x-on:click="addToBody($event, @js($variable->getKey()))">
+                            <x-filament::icon-button
+                                icon="heroicon-o-plus"
+                                type="button"
+                                color="gray"
+                                size="sm"
+                                class="cursor-pointer hover:bg-gray-100"
+                            />
                         </td>
                     @endif
-
                     @if ($canCopy)
-                        <td x-on:click="copyToClipboard(@js($variable->getKey()))">
-                            <x-heroicon-o-clipboard class="w-5 h-5" />
+                        <td class="mb-1" x-on:click="copyToClipboard(@js($variable->getKey()))">
+                            <x-filament::icon-button
+                                icon="heroicon-o-clipboard"
+                                type="button"
+                                color="gray"
+                                size="sm"
+                                class="cursor-pointer hover:bg-gray-100"
+                            />
                         </td>
                     @endif
-
-                    <td>
-                        {{ $variable->getLabel() }}
+                    <td class="mb-1">
+                        <p class="fi-ta-text-item text-base text-gray-950 dark:text-white ps-1">
+                            {{ $variable->getLabel() }}
+                        </p>
                     </td>
                 </tr>
             @endforeach
