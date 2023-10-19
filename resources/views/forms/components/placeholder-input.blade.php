@@ -33,8 +33,8 @@
     }">
         @if ($linksWith && $linksWith->count() > 1)
             <div class="w-full flex gap-1 mb-4">
-                <x-filament::input.wrapper>
-                    <x-filament::input.select x-model="linked">
+                <x-filament::input.wrapper class="w-full">
+                    <x-filament::input.select class="w-full" x-model="linked">
                         @foreach ($linksWith as $target => $label)
                             <option value="{{ $target }}">
                                 {{ $label }}
