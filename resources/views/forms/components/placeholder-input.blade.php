@@ -9,7 +9,7 @@
     :field="$field"
 >
     <div x-data="{
-        linked: @js($linksWith->keys()->first()),
+        linked: @js($getDefaultLink()),
         addToBody (e, key) {
             // Append the variable (key) to the body
             let original = $wire.get('data.' + this.linked)
@@ -45,11 +45,11 @@
             </div>
         @endif
 
-        <table>
+        <div class="w-full flex flex-col gap-2">
             @foreach ($variables as $variable)
-                <tr class="flex items-center" >
+                <div class="flex gap-2 items-center">
                     @if ($linksWith && $linksWith->isNotEmpty())
-                        <td class="mb-1" x-on:click="addToBody($event, @js($variable->getKey()))">
+                        <div x-on:click="addToBody($event, @js($variable->getKey()))">
                             <x-filament::icon-button
                                 icon="heroicon-o-plus"
                                 type="button"
@@ -57,10 +57,11 @@
                                 size="sm"
                                 class="cursor-pointer hover:bg-gray-100"
                             />
-                        </td>
+                        </div>
                     @endif
+
                     @if ($canCopy)
-                        <td class="mb-1" x-on:click="copyToClipboard(@js($variable->getKey()))">
+                        <div x-on:click="copyToClipboard(@js($variable->getKey()))">
                             <x-filament::icon-button
                                 icon="heroicon-o-clipboard"
                                 type="button"
@@ -68,15 +69,14 @@
                                 size="sm"
                                 class="cursor-pointer hover:bg-gray-100"
                             />
-                        </td>
+                        </div>
                     @endif
-                    <td class="mb-1">
-                        <p class="fi-ta-text-item text-base text-gray-950 dark:text-white ps-1">
-                            {{ $variable->getLabel() }}
-                        </p>
-                    </td>
-                </tr>
+
+                    <p class="fi-ta-text-item text-base text-gray-950 dark:text-white ps-1">
+                        {{ $variable->getLabel() }}
+                    </p>
+                </div>
             @endforeach
-        </table>
+        </div>
     </div>
 </x-dynamic-component>

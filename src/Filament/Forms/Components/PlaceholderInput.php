@@ -14,6 +14,8 @@ class PlaceholderInput extends Field
 
     public null|array|string|Closure $linksWith = null;
 
+    public null|string|Closure $defaultLink = null;
+
     public null|array|Closure $variables = null;
 
     public bool|Closure $canCopy = false;
@@ -50,6 +52,19 @@ class PlaceholderInput extends Field
         return $this->evaluate($this->variables) ?? method_exists($this->getRecord(), 'getPlaceholderVariables')
             ? $this->getRecord()->getPlaceholderVariables()
             : [];
+    }
+
+    public function defaultLink(string|Closure $defaultLink): static
+    {
+        $this->defaultLink = $defaultLink;
+
+        return $this;
+    }
+
+    public function getDefaultLink(): string
+    {
+        return $this->evaluate($this->defaultLink)
+            ?? $this->getLinksWith()->keys()->first();
     }
 
     public function copyable(bool|Closure $canCopy = true): static
