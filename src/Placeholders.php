@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 
 class Placeholders
 {
-    public static function parse(string $content, array|Collection $variables)
+    public static function parse(?string $content, array|Collection $variables)
     {
         $data = Collection::wrap($variables)
             ->mapWithKeys(fn (PlaceholderVariable $value) => [$value->getKey() => $value->getValue()])
@@ -15,7 +15,7 @@ class Placeholders
         return preg_replace_callback(
             '/{{ (?<keyword>.*?) }}/',
             fn ($match) => data_get($data, $match['keyword']),
-            $content
+            $content ?? ''
         );
     }
 }
