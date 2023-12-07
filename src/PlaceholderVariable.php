@@ -13,8 +13,8 @@ class PlaceholderVariable
     }
 
     public static function make(
-        string $key = null,
-        string $label = null,
+        ?string $key = null,
+        ?string $label = null,
         mixed $value = null,
     ): self {
         return new self($key, $label, $value);
