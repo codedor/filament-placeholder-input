@@ -11,14 +11,11 @@
     <div x-data="{
         linked: @js($getDefaultLink()),
         addToBody (e, key) {
-            // Append the variable (key) to the body
-            let original = $wire.get('data.' + this.linked)
-            let updated = ((! original) ? '' : original + ' ') + '@{{ ' + key + ' }}'
-
-            $wire.set('data.' + this.linked, updated)
-
-            // Let tiptap know the content has been updated, on the next tick
-            window.setTimeout(() => $dispatch('refresh-tiptap-editors'), 0)
+            window.filamentTiptapEditors['data.' + this.linked]
+                .chain()
+                .focus()
+                .insertContent('@{{ ' + key + ' }}')
+                .run()
         },
         copyToClipboard (key) {
             // Copy the variable (key) to the clipboard
