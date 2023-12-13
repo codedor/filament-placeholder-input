@@ -11,11 +11,17 @@
     <div x-data="{
         linked: @js($getDefaultLink()),
         addToBody (e, key) {
-            window.filamentTiptapEditors['data.' + this.linked]
-                .chain()
-                .focus()
-                .insertContent('@{{ ' + key + ' }}')
-                .run()
+            const tiptap = window.filamentTiptapEditors['data.' + this.linked]
+            if (tiptap) {
+                tiptap.chain().focus().insertContent('@{{ ' + key + ' }}').run()
+                return
+            }
+
+            // Append the variable (key) to the body
+            let original = $wire.get('data.' + this.linked)
+            let updated = ((! original) ? '' : original + ' ') + '@{{ ' + key + ' }}'
+
+            $wire.set('data.' + this.linked, updated)
         },
         copyToClipboard (key) {
             // Copy the variable (key) to the clipboard
