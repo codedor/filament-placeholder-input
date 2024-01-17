@@ -10,10 +10,22 @@
 >
     <div x-data="{
         linked: @js($getDefaultLink()),
+        getTiptap (linked) {
+            let editors = document.querySelectorAll('.tiptap-wrapper');
+
+            if (editors.length === 0) {
+                return null;
+            }
+
+            return [...editors].filter(function (editor) {
+                return editor._x_dataStack[0].statePath === 'data.' + linked;
+            });
+        },
         addToBody (e, key) {
-            const tiptap = window.filamentTiptapEditors['data.' + this.linked]
+            let tiptap = this.getTiptap(this.linked)
+
             if (tiptap) {
-                tiptap.chain().focus().insertContent('@{{ ' + key + ' }}').run()
+                tiptap[0]._x_dataStack[0].editor().chain().focus().insertContent('@{{ ' + key + ' }}').run()
                 return
             }
 
