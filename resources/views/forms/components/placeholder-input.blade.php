@@ -70,7 +70,7 @@
                                 type="button"
                                 color="gray"
                                 size="sm"
-                                class="cursor-pointer hover:bg-gray-100"
+                                class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
                             />
                         </div>
                     @endif
@@ -82,7 +82,7 @@
                                 type="button"
                                 color="gray"
                                 size="sm"
-                                class="cursor-pointer hover:bg-gray-100"
+                                class="cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
                             />
                         </div>
                     @endif
