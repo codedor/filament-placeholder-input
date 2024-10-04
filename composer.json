@@ -41,9 +41,6 @@
             "providers": [
                 "Codedor\\FilamentPlaceholderInput\\Providers\\FilamentPlaceholderInputServiceProvider"
             ]
-        },
-        "branch-alias": {
-            "dev-feature/laravel-11": "1.1.x-dev"
         }
     },
     "config": {
