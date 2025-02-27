@@ -18,7 +18,7 @@
             }
 
             return [...editors].filter(function (editor) {
-                return editor._x_dataStack[0].statePath === 'data.' + linked;
+                return editor._x_dataStack && editor._x_dataStack[0].statePath === 'data.' + linked;
             });
         },
         addToBody (e, key) {
