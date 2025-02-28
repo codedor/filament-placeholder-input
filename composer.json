@@ -11,19 +11,19 @@
     "require": {
         "php": "^8.2",
         "filament/filament": "^3.1",
-        "illuminate/contracts": "^10.0 || ^11.0",
+        "illuminate/contracts": "^10.0|^11.0|^12.0",
         "spatie/laravel-package-tools": "^1.12"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^7.0 || ^8.0",
-        "larastan/larastan": "^2.0",
-        "orchestra/testbench": "^8.0 || ^9.0",
-        "pestphp/pest": "^2.0",
-        "pestphp/pest-plugin-laravel": "^2.0",
-        "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0"
+        "larastan/larastan": "^2.0|^3.0",
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "pestphp/pest": "^2.0|^3.0",
+        "pestphp/pest-plugin-laravel": "^2.0|^3.0",
+        "phpstan/extension-installer": "^1.1|^2.0",
+        "phpstan/phpstan-deprecation-rules": "^1.0|^2.0",
+        "phpstan/phpstan-phpunit": "^1.0|^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -41,9 +41,6 @@
             "providers": [
                 "Codedor\\FilamentPlaceholderInput\\Providers\\FilamentPlaceholderInputServiceProvider"
             ]
-        },
-        "branch-alias": {
-            "dev-feature/laravel-11": "1.1.x-dev"
         }
     },
     "config": {
