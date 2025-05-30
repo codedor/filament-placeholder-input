@@ -33,7 +33,7 @@ class PlaceholderInput extends Field
 
     public function getLinksWith(): Collection
     {
-        $form = $this->getLivewire()->getForm('form');
+        $form = $this->getLivewire()->getSchema('form');
 
         return collect($this->evaluate($this->linksWith))->mapWithKeys(fn ($key) => [
             $key => $form->getComponent("data.{$key}")->getLabel(),
