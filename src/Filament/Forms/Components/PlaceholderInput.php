@@ -36,7 +36,7 @@ class PlaceholderInput extends Field
         $form = $this->getLivewire()->getSchema('form');
 
         return collect($this->evaluate($this->linksWith))->mapWithKeys(fn ($key) => [
-            $key => $form->getComponent("data.{$key}")->getLabel(),
+            $key => $form->getFlatComponents()[$key]->getLabel(),
         ]);
     }
 
