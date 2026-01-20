@@ -11,21 +11,21 @@
     <div x-data="{
         linked: @js($getDefaultLink()),
         getTiptap (linked) {
-            let editors = document.querySelectorAll('.tiptap-wrapper');
+            let editors = document.querySelectorAll('.fi-input-wrp-content-ctn > div');
 
             if (editors.length === 0) {
                 return null;
             }
 
             return [...editors].filter(function (editor) {
-                return editor._x_dataStack && editor._x_dataStack[0].statePath === 'data.' + linked;
+                return editor._x_dataStack && editor._x_dataStack[1].$statePath === 'data.' + linked;
             });
         },
         addToBody (e, key) {
             let tiptap = this.getTiptap(this.linked)
 
-            if (tiptap) {
-                tiptap[0]._x_dataStack[0].editor().chain().focus().insertContent('@{{ ' + key + ' }}').run()
+            if (tiptap.length) {
+                tiptap[0]._x_dataStack[0].getEditor().chain().focus().insertContent('@{{ ' + key + ' }}').run()
                 return
             }
 

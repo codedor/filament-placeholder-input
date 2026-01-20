@@ -1,6 +1,6 @@
 <?php
 
-namespace Codedor\FilamentPlaceholderInput\Filament\Forms\Components;
+namespace Wotz\FilamentPlaceholderInput\Filament\Forms\Components;
 
 use Closure;
 use Filament\Forms\Components\Field;
@@ -33,10 +33,10 @@ class PlaceholderInput extends Field
 
     public function getLinksWith(): Collection
     {
-        $form = $this->getLivewire()->getForm('form');
+        $form = $this->getLivewire()->getSchema('form');
 
         return collect($this->evaluate($this->linksWith))->mapWithKeys(fn ($key) => [
-            $key => $form->getComponent("data.{$key}")->getLabel(),
+            $key => $form->getFlatComponents()[$key]->getLabel(),
         ]);
     }
 

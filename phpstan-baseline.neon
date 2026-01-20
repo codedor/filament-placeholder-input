@@ -1,10 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:getPlaceholderVariables\\(\\)\\.$#"
-			count: 1
-			path: src/Filament/Forms/Components/PlaceholderInput.php
-		-
-			message: "#^Property Codedor\\\\FilamentPlaceholderInput\\\\Filament\\\\Forms\\\\Components\\\\PlaceholderInput\\:\\:\\$view \\(view-string\\) does not accept default value of type string\\.$#"
+			message: "#^Cannot call method getPlaceholderVariables\\(\\) on array\\<string, mixed\\>\\|Illuminate\\\\Database\\\\Eloquent\\\\Model.$#"
 			count: 1
 			path: src/Filament/Forms/Components/PlaceholderInput.php

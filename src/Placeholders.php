@@ -1,6 +1,6 @@
 <?php
 
-namespace Codedor\FilamentPlaceholderInput;
+namespace Wotz\FilamentPlaceholderInput;
 
 use Illuminate\Support\Collection;
 
