@@ -2,9 +2,9 @@
 
 namespace Wotz\FilamentPlaceholderInput\Tests;
 
-use Wotz\FilamentPlaceholderInput\Providers\FilamentPlaceholderInputServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Wotz\FilamentPlaceholderInput\Providers\FilamentPlaceholderInputServiceProvider;
 
 class TestCase extends Orchestra
 {
