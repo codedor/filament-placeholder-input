@@ -7,7 +7,7 @@ A field for Filament that allows you to add content to another field
 You can install the package via composer:
 
 ```bash
-composer require codedor/filament-placeholder-input
+composer require wotz/filament-placeholder-input
 ```
 
 ## Documentation
@@ -34,7 +34,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Security Vulnerabilities
 
-If you discover any security-related issues, please email info@codedor.be instead of using the issue tracker.
+If you discover any security-related issues, please email info@whoownsthezebra.be instead of using the issue tracker.
 
 ## License
 
