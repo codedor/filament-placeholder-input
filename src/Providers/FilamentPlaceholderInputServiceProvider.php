@@ -1,6 +1,6 @@
 <?php
 
-namespace Codedor\FilamentPlaceholderInput\Providers;
+namespace Wotz\FilamentPlaceholderInput\Providers;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;

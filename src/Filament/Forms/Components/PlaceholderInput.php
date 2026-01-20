@@ -1,6 +1,6 @@
 <?php
 
-namespace Codedor\FilamentPlaceholderInput\Filament\Forms\Components;
+namespace Wotz\FilamentPlaceholderInput\Filament\Forms\Components;
 
 use Closure;
 use Filament\Forms\Components\Field;

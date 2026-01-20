@@ -1,12 +1,12 @@
 {
-    "name": "codedor/filament-placeholder-input",
+    "name": "wotz/filament-placeholder-input",
     "description": "A field for Filament that allows you to add content to another field",
     "keywords": [
-        "codedor",
+        "who owns the zebra",
         "laravel",
         "filament-placeholder-input"
     ],
-    "homepage": "https://github.com/codedor/filament-placeholder-input",
+    "homepage": "https://github.com/wotzebra/filament-placeholder-input",
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -19,27 +19,27 @@
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^7.0 || ^8.0",
         "orchestra/testbench": "^8.0|^9.0|^10.0",
-        "pestphp/pest": "^3.0",
-        "pestphp/pest-plugin-laravel": "^3.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0",
         "phpstan/extension-installer": "^1.1|^2.0",
         "phpstan/phpstan-deprecation-rules": "^1.0|^2.0",
         "phpstan/phpstan-phpunit": "^1.0|^2.0"
     },
     "autoload": {
         "psr-4": {
-            "Codedor\\FilamentPlaceholderInput\\": "src",
-            "Codedor\\FilamentPlaceholderInput\\Database\\Factories\\": "database/factories"
+            "Wotz\\FilamentPlaceholderInput\\": "src",
+            "Wotz\\FilamentPlaceholderInput\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Codedor\\FilamentPlaceholderInput\\Tests\\": "tests"
+            "Wotz\\FilamentPlaceholderInput\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Codedor\\FilamentPlaceholderInput\\Providers\\FilamentPlaceholderInputServiceProvider"
+                "Wotz\\FilamentPlaceholderInput\\Providers\\FilamentPlaceholderInputServiceProvider"
             ]
         }
     },

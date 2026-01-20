@@ -1,5 +1,5 @@
 <?php
 
-use Codedor\FilamentPlaceholderInput\Tests\TestCase;
+use Wotz\FilamentPlaceholderInput\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);
